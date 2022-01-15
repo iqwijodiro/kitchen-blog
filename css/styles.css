@@ -1,0 +1,352 @@
+:root {
+  --green: #60c485;
+  --magenta: #fc6470;
+  --yellow: #feca37;
+  --gray-light: #dedede;
+  --gray-mid: #999;
+}
+
+/* General Styles */
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: 'Quicksand', sans-serif;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a,
+a:active,
+a:visited {
+  text-decoration: none;
+}
+
+p {
+  font-size: 1.2em;
+  color: var(--gray-mid);
+  line-height: 1.8;
+  font-weight: 300;
+}
+
+h1 {
+  font-size: 3em;
+  color: var(--green);
+}
+h2 {
+  font-size: 2em;
+  color: var(--gray-mid);
+  margin-top: 15px;
+}
+
+/* Utilities */
+
+.btn {
+  background-color: var(--green);
+  color: #fff;
+  padding: 10px 30px;
+  margin: 0 20px;
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -ms-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+}
+
+.btn:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  color: var(--green);
+  outline: 2px solid var(--green);
+  transform: translateY(-3px);
+  -webkit-transform: translateY(-3px);
+  -moz-transform: translateY(-3px);
+  -ms-transform: translateY(-3px);
+  -o-transform: translateY(-3px);
+}
+
+.btn:active {
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  transform: translateY(-1px);
+  -webkit-transform: translateY(-1px);
+  -moz-transform: translateY(-1px);
+  -ms-transform: translateY(-1px);
+  -o-transform: translateY(-1px);
+}
+.card {
+  max-width: 650px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  box-shadow: 10px 10px 15px -5px rgba(0, 0, 0, 0.45);
+}
+
+.link {
+  font-size: 1.3em;
+}
+
+.marked {
+  border-bottom: 0.1em solid var(--yellow);
+  color: var(--yellow);
+}
+/* header - navbar */
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  padding: 1em 4em;
+  max-height: 100px;
+  background-color: rgba(255, 255, 255, 0.9);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 3;
+}
+
+
+.header__brand {
+  text-transform: uppercase;
+  color: var(--green);
+  font-size: 2em;
+  font-weight: 700;
+  font-family: 'Merienda One', cursive;
+}
+.header__brand--logo {
+  width: 60px;
+}
+.header__navigation {
+  flex: 1 1 50%;
+  max-width: 650px;
+}
+
+.header__navigation .list {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.header__navigation .link {
+  color: var(--green);
+  font-weight: 400;
+  position: relative;
+}
+.header__navigation .link:hover {
+  color: #fff;
+  position: relative;
+  padding: 5px 0;
+}
+
+.header .header__navigation .link::before {
+  transform: scaleX(0);
+  -webkit-transform: scaleX(0);
+  -moz-transform: scaleX(0);
+  -ms-transform: scaleX(0);
+  -o-transform: scaleX(0);
+  transform-origin: bottom right;
+}
+.header .header__navigation .link:hover::before {
+  transform: scaleX(1);
+  -webkit-transform: scaleX(1);
+  -moz-transform: scaleX(1);
+  -ms-transform: scaleX(1);
+  -o-transform: scaleX(1);
+  transform-origin: bottom left;
+}
+.header .header__navigation .link::before {
+  content: ' ';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  inset: 0 0 0 0;
+  background-color: var(--green);
+  z-index: -1;
+  transition: transform 0.2s ease;
+  -webkit-transition: transform 0.2s ease;
+  -moz-transition: transform 0.2s ease;
+  -ms-transition: transform 0.2s ease;
+  -o-transition: transform 0.2s ease;
+}
+
+@media screen and (max-width: 800px) {
+  .header {
+    flex-direction: column;
+    max-height: 100%;
+  }
+  .header__navigation,
+  .header__navigation .list .list__item {
+    max-width: 100%;
+    margin-top: 15px;
+  }
+  .header__navigation .list {
+    display: none;
+    /* flex-direction: column; */
+  }
+}
+
+/*Menu to mobiles*/
+
+
+
+/* hero */
+
+.hero {
+  background-image: url('../img/hero-food.webp');
+  background-size: cover;
+  background-position: center top;
+  background-attachment: fixed;
+  height: 100vh;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.hero .card {
+  background-color: rgba(255, 255, 255, 0.9);
+  animation: moveInBottom 2.5s ease;
+  -webkit-animation: moveInBottom 2.5s ease;
+}
+
+.hero .hero__title {
+  text-align: center;
+}
+
+.card__text {
+  margin: 1em 0;
+  text-align: center;
+}
+
+.card__actions {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (max-width: 800px) {
+  .hero .card {
+    width: calc(95% - 10px);
+    margin: 0 auto;
+  }
+  .card__actions {
+    height: auto;
+    margin-top: 20px;
+    flex-direction: column;
+    text-align: center;
+  }
+  .card__actions .btn {
+    margin-bottom: 15px;
+    font-size: 1.5em;
+    padding: 20px;
+  }
+}
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(130px);
+    -webkit-transform: translateY(130px);
+    -moz-transform: translateY(130px);
+    -ms-transform: translateY(130px);
+    -o-transform: translateY(130px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+  }
+}
+
+/* sponsors */
+
+.sponsors {
+    width: 100%;
+    background-color: var(--gray-light);
+    text-align: center;
+    padding: 20px 10px;
+}
+
+.sponsors__list {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.sponsor {
+    margin: 1em;
+    font-size: 1.3em;
+    color: var(--gray-mid);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.sponsor i {
+    margin-bottom: 15px;
+    font-size: 1.5em;
+}
+
+@media screen and (max-width: 800px) {
+  .sponsors__list {
+    flex-direction: column;
+  }
+}
+/* recipes - section */
+
+.recipes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--yellow);
+}
+
+.recipes .card {
+  background-color: #fff;
+}
+
+.recipes .card h2 {
+  text-align: center;
+}
+
+@media screen and (max-width: 800px) {
+  .recipes {
+    flex-direction: column;
+    padding: 20px;
+  }
+}
